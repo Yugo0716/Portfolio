@@ -1,25 +1,82 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import { worksData } from '../data/worksData'
+import Image from 'next/image'
+import { useState } from 'react';
 
 export default function WorksDetailPage() {
   const searchParams = useSearchParams()
   const id = searchParams.get('id')
   const work = worksData.find(w => w.id === id)
+  const [index, setIndex] = useState(0);
 
   if (!work) return <p className="pt-24 text-center">該当する作品が見つかりませんでした。</p>
 
+  const screenshots = work.screenshots || [];
+  const prev = () => setIndex((index - 1 + screenshots.length) % screenshots.length);
+  const next = () => setIndex((index + 1) % screenshots.length);
+
   return (
-    <div className="max-w-3xl mx-auto space-y-4 pt-24">
-      <img src={work.thumb} alt={work.title} className="w-full rounded" />
-      <h2 className="text-2xl font-bold">{work.title}</h2>
-      <p><strong>どんなゲーム？</strong> {work.desc}</p>
-      <p><strong>想定プレイ時間：</strong> {work.playtime}</p>
-      <p><strong>GitHub (Releasesからビルドファイルをダウンロードできます)：</strong> <a href={work.github} className="text-lime-600 underline" target="_blank" rel="noopener noreferrer">{work.github}</a></p>
-      <video controls src={work.video} className="w-full" />
-      <p><strong>開発ツール：</strong> {work.tools}</p>
+    <div className="max-w-3xl mx-auto space-y-4">
+      <div className="flex items-center space-x-4">
+        {work.icon && (
+          <Image src={work.icon} alt="icon" width={40} height={40} className="rounded" />
+        )}
+        <h1 className="text-3xl font-bold">{work.title}</h1>
+      </div>
+
+      {screenshots.length > 0 && (
+        <div className="relative w-full h-full overflow-hidden rounded border">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${index * (100 / screenshots.length)}%)`, width: `${screenshots.length * 100}%` }}
+          >
+            {screenshots.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`screenshot-${i}`}
+                className="object-cover flex-shrink-0"
+                style={{ width: `${100 / screenshots.length}%` }}
+              />
+            ))}
+          </div>
+          <button
+            onClick={prev}
+            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-lime-300 text-xl w-10 h-10 rounded-full shadow-md flex items-center justify-center transition-colors"
+          >
+            ◀
+          </button>
+          <button
+            onClick={next}
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-lime-300 text-xl w-10 h-10 rounded-full shadow-md flex items-center justify-center transition-colors"
+          >
+            ▶
+          </button>
+        </div>
+      )}
+      <div className="h-4" />
+      <div className="max-w-3xl mx-auto space-y-4">
+        <h2 className="text-2xl font-bold">ゲームの概要</h2>
+        <p><strong>どんなゲーム？：</strong> {work.desc}</p>
+        <p><strong>想定プレイ時間：</strong> {work.playtime}</p>
+        <p><strong>GitHub (Releasesからビルドファイルをダウンロードできます)：</strong> <a href={work.github} className="text-lime-600 underline" target="_blank" rel="noopener noreferrer">{work.github}</a></p>
+        <p><strong>開発ツール：</strong> {work.tools}</p>
+        <p><strong>プレイ映像：</strong></p>
+        <video controls src={work.video} className="w-full" />
+      </div>
+
+      <div className="h-4" />
+      <h2 className="text-2xl font-bold">制作について</h2>
+      <p><strong>役職：</strong> {work.job}</p>
       <p><strong>制作期間：</strong> {work.period}</p>
-      <p><strong>押しポイント：</strong> {work.point}</p>
+      <p><strong>魅力：</strong> {work.point}</p>
+
+      <div className="h-4" />
+      <h2 className="text-2xl font-bold">所感</h2>
+        {work.comment && work.comment.trim().split('\n').map((line, i) => (
+          <p key={i} className="mb-2">{line}</p>
+        ))}
     </div>
   );
 }
