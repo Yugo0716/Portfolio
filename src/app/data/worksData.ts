@@ -75,7 +75,7 @@ export const worksData = [
       まだまだ不十分な部分はありますが、より市販されているようなクオリティの高いゲームに近づいたのではないかと思います。
       `,
       github: 'https://github.com/Yugo0716/AngrySushiParty',
-      thumb: '/NeeSushitotte/NeesuShitotte.png',
+      thumb: '/NeeSushitotte/NeeSushitotte.png',
       screenshots: [
         '/NeeSushitotte/NeeSushitotte1.png',
         '/NeeSushitotte/NeeSushitotte.png',
