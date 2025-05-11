@@ -1,16 +1,16 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
-import { worksData } from '../data/worksData'
-import Image from 'next/image'
+import { use } from 'react';
+import { worksData } from '../../data/worksData';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { useState } from 'react';
 
-export default function WorksDetailPage() {
-  const searchParams = useSearchParams()
-  const id = searchParams.get('id')
-  const work = worksData.find(w => w.id === id)
+export default function WorkDetailPage(promise: { params: Promise<{ id: string }> }) {
+  const { id } = use(promise.params);
+  const work = worksData.find(w => w.id === id);
   const [index, setIndex] = useState(0);
 
-  if (!work) return <p className="pt-24 text-center">該当する作品が見つかりませんでした。</p>
+  if (!work) return notFound();
 
   const screenshots = work.screenshots || [];
   const prev = () => setIndex((index - 1 + screenshots.length) % screenshots.length);
@@ -55,6 +55,7 @@ export default function WorksDetailPage() {
           </button>
         </div>
       )}
+
       <div className="h-4" />
       <div className="max-w-3xl mx-auto space-y-4">
         <h2 className="text-2xl font-bold">ゲームの概要</h2>
@@ -74,8 +75,8 @@ export default function WorksDetailPage() {
 
       <div className="h-4" />
       <h2 className="text-2xl font-bold">所感</h2>
-        {work.comment && work.comment.trim().split('\n').map((line, i) => (
-          <p key={i} className="mb-2">{line}</p>
+      {work.comment && work.comment.trim().split('\n').map((line, i) => (
+        <p key={i} className="mb-2">{line}</p>
         ))}
     </div>
   );
