@@ -1,17 +1,16 @@
-export const metadata = {
-  description: 'ゲームプランナー志望のポートフォリオサイトトップページ',
-};
+import Image from 'next/image'
+import { AboutSection } from 'components/about'
+import { WorksSection } from 'components/works'
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="text-center space-y-4">
-      <h1 className="text-4xl font-bold">ゲームプランナー志望</h1>
-      <p>プレイヤー行動を促す仕掛け作りが得意</p>
-      <img src="/代表作の画像.jpg" alt="代表作" className="mx-auto w-1/2" />
-      <div className="space-x-4">
-        <a href="/about" className="underline">Aboutへ</a>
-        <a href="/works" className="underline">Worksへ</a>
-      </div>
+    <div className="space-y-16">
+      <section className="text-center">
+        <Image src="/me.jpg" alt="YUGO" width={300} height={300} className="mx-auto rounded-full" />
+        <h1 className="font-bold text-xl md:text-2xl mt-4">菊池勇吾（YUGO/きくっつぁん）のポートフォリオサイト</h1>
+      </section>
+      <AboutSection />
+      <WorksSection />
     </div>
   );
 }

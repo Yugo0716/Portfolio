@@ -1,29 +1,25 @@
-import Link from 'next/link';
+'use client'
+import { useSearchParams } from 'next/navigation'
+import { worksData } from '../data/worksData'
 
-export const metadata = {
-  title: 'Works',
-  description: '制作実績一覧ページ',
-};
+export default function WorksDetailPage() {
+  const searchParams = useSearchParams()
+  const id = searchParams.get('id')
+  const work = worksData.find(w => w.id === id)
 
-const projects = [
-  { slug: 'project1', title: 'アクションゲーム企画', summary: 'プレイヤー誘導設計' },
-  { slug: 'project2', title: 'パズルゲーム企画', summary: 'レベルデザイン' },
-];
+  if (!work) return <p className="pt-24 text-center">該当する作品が見つかりませんでした。</p>
 
-export default function WorksPage() {
   return (
-    <div>
-      <h2 className="text-3xl font-bold mb-4">Works</h2>
-      <ul>
-        {projects.map((p) => (
-          <li key={p.slug} className="mb-4">
-            <Link href={`/works/${p.slug}`} className="text-xl underline">
-              {p.title}
-            </Link>
-            <p>{p.summary}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="max-w-3xl mx-auto space-y-4 pt-24">
+      <img src={work.thumb} alt={work.title} className="w-full rounded" />
+      <h2 className="text-2xl font-bold">{work.title}</h2>
+      <p><strong>どんなゲーム？</strong> {work.desc}</p>
+      <p><strong>想定プレイ時間：</strong> {work.playtime}</p>
+      <p><strong>GitHub (Releasesからビルドファイルをダウンロードできます)：</strong> <a href={work.github} className="text-lime-600 underline" target="_blank" rel="noopener noreferrer">{work.github}</a></p>
+      <video controls src={work.video} className="w-full" />
+      <p><strong>開発ツール：</strong> {work.tools}</p>
+      <p><strong>制作期間：</strong> {work.period}</p>
+      <p><strong>押しポイント：</strong> {work.point}</p>
     </div>
   );
 }
