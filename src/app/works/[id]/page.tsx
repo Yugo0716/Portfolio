@@ -64,6 +64,19 @@ export default function WorkDetailPage(promise: { params: Promise<{ id: string }
         {work.github && 
           <p><strong>GitHubリンク (Releasesからビルドファイルをダウンロードできます)：</strong> <a href={work.github} className="text-lime-600 underline" target="_blank" rel="noopener noreferrer">{work.github}</a></p>
         }
+        {work.link && (
+        <p>
+          <strong>ダウンロードページリンク（サークルのホームページに移動します）：</strong>{' '}
+          <a
+            href={work.link}
+            className="text-lime-600 underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {work.link}
+          </a>
+        </p>
+      )}
         
         {work.unityroom && (
         <p>
@@ -78,6 +91,20 @@ export default function WorkDetailPage(promise: { params: Promise<{ id: string }
           </a>
         </p>
       )}
+
+      {work.pdf && 
+        <p><strong>企画書：</strong>{''}
+        <a
+            href={work.pdf}
+            className="text-lime-600 underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {work.pdf}
+          </a>
+        </p>
+      }
+
       {work.tools &&
         <p><strong>開発ツール：</strong> {work.tools}</p>
       }
