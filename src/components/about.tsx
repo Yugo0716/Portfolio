@@ -29,6 +29,7 @@ export function AboutSection() {
                     
                     <div className="h-4" />
                     <li>研究室ではインタラクティブコンテンツや外部企業との共同研究に従事</li>
+                    <li>主な研究分野：HCI (Human Computer Interaction)</li>
                     <li>主に企画・プログラマとして学生制作のゲーム作品を複数発表、Unity歴4年</li>
                 </ul>
             </div>

@@ -12,13 +12,13 @@ export function Header() {
         <ul className="flex gap-4 text-white">
           {isHome ? (
             <>
-              <li><a href="/">トップ</a></li>
+              <li><a href="/">Top</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#works">Works</a></li>
             </>
           ) : (
             <>
-              <li><a href="/">トップ</a></li>
+              <li><a href="/">Top</a></li>
               <li><a href="/#about">About</a></li>
               <li><a href="/#works">Works</a></li>
             </>

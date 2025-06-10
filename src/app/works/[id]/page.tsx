@@ -58,23 +58,43 @@ export default function WorkDetailPage(promise: { params: Promise<{ id: string }
 
       <div className="h-4" />
       <div className="max-w-3xl mx-auto space-y-4">
-        <h2 className="text-2xl font-bold">ゲームの概要</h2>
-        <p><strong>どんなゲーム？：</strong> {work.desc}</p>
+        <h2 className="text-2xl font-bold">概要</h2>
+        <p><strong>どんなもの？：</strong> {work.desc}</p>
         <p><strong>想定プレイ時間：</strong> {work.playtime}</p>
-        <p><strong>GitHub (Releasesからビルドファイルをダウンロードできます)：</strong> <a href={work.github} className="text-lime-600 underline" target="_blank" rel="noopener noreferrer">{work.github}</a></p>
+        {work.github && 
+          <p><strong>GitHubリンク (Releasesからビルドファイルをダウンロードできます)：</strong> <a href={work.github} className="text-lime-600 underline" target="_blank" rel="noopener noreferrer">{work.github}</a></p>
+        }
+        
+        {work.unityroom && (
+        <p>
+          <strong>Unityroomリンク：</strong>{' '}
+          <a
+            href={work.unityroom}
+            className="text-lime-600 underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {work.unityroom}
+          </a>
+        </p>
+      )}
+      {work.tools &&
         <p><strong>開発ツール：</strong> {work.tools}</p>
-        <p><strong>プレイ映像：</strong></p>
-        <div className="relative w-full pt-[56.25%]">
+      }
+      {work.video && (
+        <>
+        <p><strong>プレイ映像：</strong></p><div className="relative w-full pt-[56.25%]">
             <iframe
-                src={work.video}
-                title="YouTube video player"
-                className="absolute top-0 left-0 w-full h-full rounded"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+              src={work.video}
+              title="YouTube video player"
+              className="absolute top-0 left-0 w-full h-full rounded"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             ></iframe>
-            </div>
-
+          </div>
+        </>
+      )}
       </div>
 
       <div className="h-4" />
@@ -84,7 +104,7 @@ export default function WorkDetailPage(promise: { params: Promise<{ id: string }
       <p><strong>魅力：</strong> {work.point}</p>
 
       <div className="h-4" />
-      <h2 className="text-2xl font-bold">所感</h2>
+      <h2 className="text-2xl font-bold">制作を振り返って</h2>
       {work.comment && work.comment.trim().split('\n').map((line, i) => (
         <p key={i} className="mb-2">{line}</p>
         ))}
