@@ -7,6 +7,7 @@ export function WorksSection() {
   return (
     <section id="works" className="relative -mt-20 pt-24 max-w-5xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Works</h2>
+      <p>大学時代に私が制作に関わったコンテンツを掲載しています。</p>
       <div className="space-y-6">
         {worksData.map(work => (
           <Link

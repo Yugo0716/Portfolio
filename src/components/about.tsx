@@ -70,6 +70,7 @@ export function AboutSection() {
                 <h3 className="font-semibold">資格</h3>
                 <ul className="list-disc list-inside">
                 <li>基本情報技術者</li>
+                <li>Basic SecCap 10</li>
                 <li>TOEIC 775点</li>
                 </ul>
             </div>
@@ -108,16 +109,18 @@ export function AboutSection() {
                 <p><strong>身近なことに面白さを見出す想像力！</strong></p>
                 ふと頭に思い浮かんだことをゲーム化します。
             </div>
-            {/*私を形成するネットワーク
+            
             <div>
                 <h3 className="text-xl font-bold mt-8">私を形成するネットワーク</h3>
-                <p className="mb-2">趣味・経験・研究が相互につながって私を形づくっています。</p>
+                <p className="mb-2">かつてスティーブ・ジョブズはスタンフォード大学の卒業式にて行なったスピーチの中で、"Connecting the Dots"という考え方を述べました。これは過去にやったことが将来的に思いもよらぬ形で結びつき合い、役立つことがある、ということを意味しています。</p>
+                <p className="mb-2">私はこの考え方が好きで、この話を知って以来、少しでも興味を持った事柄について考えてみたり、取り組んでみたりしました。その結果すぐに合わずにやめてしまったこともありますが、様々なことを経験しました。</p>
+                <p className="mb-2">以下のように私がこれまでに経験してきたことが相互につながって私を形づくっています。そして、将来的にこうしたつながりが増え、より豊かな人生となることを期待しています。</p>
                 
                 <div className='border border-lime-400 rounded'>
                     <MyNetwork />
                 </div>
                 
-            </div>*/}
+            </div>
 
         </section>
     );
