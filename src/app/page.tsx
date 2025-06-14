@@ -38,7 +38,7 @@ export default function Home() {
 
 
       <AboutSection />
-      <WorksSection />
+      <WorksSection />    
     </div>
   );
 }

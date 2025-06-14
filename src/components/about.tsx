@@ -79,7 +79,7 @@ export function AboutSection() {
                 <h3 className="font-semibold">使用言語（上ほど使用に慣れています）</h3>
                 <ul className="list-disc list-inside">
                 <li>C#（Unity開発中心）</li>
-                <li>JavaScript / TypeScript（Webページ制作・ブラウザ上で動作するアプリケーション制作）</li>
+                <li>JavaScript / TypeScript（本ポートフォリオサイト制作・ブラウザ上で動作するアプリケーション制作）</li>
                 <li>Python（データ分析、Raspberry Piなど）</li>
                 <li>C</li>
                 <li>C++</li>
@@ -104,7 +104,7 @@ export function AboutSection() {
                 大学に入って、それまで全くの未知だった合気道、エレキギターに挑戦しました。
 
                 <p><strong>スイッチが入ればとことんやる継続力！</strong></p>
-                本ポートフォリオサイトも「作った方が自分が伝わるんじゃないか」と思って2日で一気に作りあげました。
+                一度取り掛かれば満足いくまでとにかく突き進みます。
 
                 <p><strong>身近なことに面白さを見出す想像力！</strong></p>
                 ふと頭に思い浮かんだことをゲーム化します。
