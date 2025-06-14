@@ -34,6 +34,7 @@ const nodesData: NodeType[] = [
   { id: 14, label: "塾講師アルバイト", description:"小学生～高校生を相手に個別指導塾で働いておりました。一度学習したことを分かりやすくアウトプットすることは難しいです。その経験を積むことができました。また、私は比較的純粋な（悪く言えば子どもっぽい）性格であると思っているのですが、そのこともあってか生徒の視点で物事を考えることが得意で、教室長や生徒から賞賛の言葉をいただきました。", group: "desc"},
   { id: 15, label: "古文", group: "nonDesc"},
   { id: 16, label: "ネットワーク", description:"通信技術に興味があり、OSI参照モデルのそれぞれの階層の役割や通信パケットのしくみ、セキュリティについて勉強していました。", group: "desc"},
+  { id: 17, label: "イベント運営", description: "サークルでは大学祭でのゲーム展示の運営の責任者として、会場設営や来場者への対応などを担当しました。また、研究室内での飲み会や芋煮会などのイベントの幹事として企画・進行をしました。",group: "desc"},
 ];
 
 const edgesData: EdgeType[] = [
@@ -46,6 +47,7 @@ const edgesData: EdgeType[] = [
   { from: 1, to: 11 , label:"新しいゲーム体験", font: {size: 0}},
   { from: 1, to: 12 , label:"複数人プレイ", font: {size: 0}},
   { from: 1, to: 15 , label:"ゲームのストーリーの元となった物語", font: {size: 0}},
+  { from: 1, to: 17 , label:"ゲームをプレイした人の視点や感想を知る", font: {size: 0}},
   { from: 2, to: 4 , label:"新しいアイデアの着想", font: {size: 0}},
   { from: 2, to: 6 , label:"カラスを対象とした研究", font: {size: 0}},
   { from: 2, to: 10 , label:"実験システムの実装", font: {size: 0}},
@@ -65,6 +67,7 @@ const edgesData: EdgeType[] = [
   { from: 10, to: 11 , label:"VR/ARコンテンツの実装", font: {size: 0}},
   { from: 10, to: 16 , label:"通信処理の実装", font: {size: 0}},
   { from: 12, to: 13 , label:"人との関わり方を考えるきっかけ", font: {size: 0}},
+  { from: 12, to: 17 , label:"メンバーと協力して運営", font: {size: 0}},
 ];
 
 const MyNetwork = () => {
@@ -191,12 +194,12 @@ const MyNetwork = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div ref={ref} style={{ height: 600, width: "100%" }} />
+    <div className="relative overflow-visible">
+      <div ref={ref} style={{ height: 450, width: "100%" }} />
       {selectedNode && popupPosition && (
         <div
           className="absolute z-50 bg-white border border-lime-300 rounded shadow-lg p-4 text-sm"
-          style={{ top: popupPosition.y, left: popupPosition.x }}
+          style={{ top: popupPosition.y+10, left: popupPosition.x-5 }}
         >
           <h2 className="font-bold mb-2">{selectedNode.label}</h2>
           <p>{selectedNode.description}</p>
