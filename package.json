@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.10.5",
+    "microcms-js-sdk": "^3.2.0",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
