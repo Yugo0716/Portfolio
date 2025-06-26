@@ -17,7 +17,7 @@ export function AboutSection() {
                     href="https://www.icd.riec.tohoku.ac.jp/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="text-lime-600 underline"
                     >
                     インタラクティブコンテンツ研究室
                     <svg className="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,7 +41,7 @@ export function AboutSection() {
                         href="https://micomprocedure.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
+                        className="text-lime-600 underline"
                         >
                         東北大学マイコンプロシージャ（ゲーム制作サークル）
                         <svg className="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ export function AboutSection() {
                         href="https://tohokuaiki.jp/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
+                        className="text-lime-600 underline"
                         >
                         東北大学学友会合気道部 
                         <svg className="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
