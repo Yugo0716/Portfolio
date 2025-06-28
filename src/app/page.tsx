@@ -4,6 +4,8 @@ import { WorksSection } from 'components/works'
 import { FaGithub, FaX, FaXTwitter } from 'react-icons/fa6'
 import ReviewSection from 'components/review';
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <div className="space-y-16">
@@ -42,7 +44,7 @@ export default function Home() {
       <AboutSection />
       <WorksSection />
       <ReviewSection />
-      
+
       <div className="relative -mt-20 pt-24 max-w-5xl mx-auto">
         本ポートフォリオサイトの実装は
         <a href="https://github.com/Yugo0716/Portfolio" target="_blank"rel="noopener noreferrer" className="text-lime-600 underline">
