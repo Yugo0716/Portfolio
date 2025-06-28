@@ -1,4 +1,5 @@
 import { getDetail, getReviews } from "../../../../libs/client";
+import Pagination from "components/pagination";
 import Image from "next/image";
 
 export async function generateStaticParams() {
@@ -10,12 +11,10 @@ export async function generateStaticParams() {
   return [...paths];
 }
 
-export default async function StaticDetailPage({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function StaticDetailPage(promise: { params: Promise<{ id: string }> }) {
+  const { id } = await promise.params;
   const review = await getDetail(id);
+  const { contents: reviewList } = await getReviews();
 
   return (
     <div className="max-w-3xl mx-auto space-y-6 p-4">
@@ -35,7 +34,7 @@ export default async function StaticDetailPage({
       <div className="space-y-2">
         <h2 className="text-xl font-bold">ゲームのコンセプト</h2>
         <div
-          className="prose"
+          className="prose space-y-2"
           dangerouslySetInnerHTML={{
             __html: review.concept,
           }}
@@ -45,7 +44,7 @@ export default async function StaticDetailPage({
       <div className="space-y-2">
         <h2 className="text-xl font-bold">ゲームの面白さ</h2>
         <div
-          className="prose"
+          className="prose space-y-2"
           dangerouslySetInnerHTML={{
             __html: review.fun,
           }}
@@ -55,12 +54,21 @@ export default async function StaticDetailPage({
       <div className="space-y-2">
         <h2 className="text-xl font-bold">より面白くするアイデア</h2>
         <div
-          className="prose"
+          className="prose space-y-2"
           dangerouslySetInnerHTML={{
             __html: review.idea,
           }}
         />
       </div>
+
+      
+<Pagination
+  items={reviewList} 
+  id={id}
+  getId={(item) => item.id}
+  getTitle={(item) => item.title}
+  pathPrefix="/game-review"
+/>
     </div>
   );
 }

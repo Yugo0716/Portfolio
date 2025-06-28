@@ -166,7 +166,13 @@ export default function WorkDetailPage(promise: { params: Promise<{ id: string }
           <p key={i} className="mb-2">{line}</p>
         ))}
       </div>
-      <Pagination id={id}/>
+      <Pagination
+        items={worksData}
+        id={id}
+        getId={(item) => item.id}
+        getTitle={(item) => item.title}
+        pathPrefix="/works"
+      />
     </div>
   );
 }

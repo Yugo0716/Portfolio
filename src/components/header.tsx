@@ -16,14 +16,14 @@ export function Header() {
               <li><a href="/">Top</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#works">Works</a></li>
-              <li><Link href="/game-review">Review</Link></li>
+              <li><Link href="#game-review">Review</Link></li>
             </>
           ) : (
             <>
               <li><Link href="/">Top</Link></li>
               <li><Link href="/#about">About</Link></li>
               <li><Link href="/#works">Works</Link></li>
-              <li><Link href="/game-review">Review</Link></li>
+              <li><Link href="/#game-review">Review</Link></li>
             </>
           )}
         </ul>

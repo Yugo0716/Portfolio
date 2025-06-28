@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { getReviews } from "../../../libs/client";
+import { getReviews } from "../../libs/client";
 
-export default async function StaticPage() {
+export default async function ReviewSection() {
     const { contents } = await getReviews();
 
     if (!contents || contents.length === 0) {
@@ -9,9 +9,9 @@ export default async function StaticPage() {
     }
 
     return (
-        <section id="reviews" className="relative -mt-20 pt-24 max-w-5xl mx-auto">
+        <section id="game-review" className="relative -mt-20 pt-24 max-w-5xl mx-auto">
             <h1 className="text-2xl font-bold mb-4">Review</h1>
-            <p className="mb-6">クリアしたことのあるゲームのコンセプト、面白さ、より面白くするアイデアを掲載しています。</p>
+            <p className="mb-6">私がクリアしたゲームのコンセプト・面白さ・より面白くするアイデアを500字程度でまとめています。順次更新していきます。</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {contents.map((review) => (
