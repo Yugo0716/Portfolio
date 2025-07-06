@@ -2,6 +2,9 @@ import Image from 'next/image'
 import { AboutSection } from 'components/about'
 import { WorksSection } from 'components/works'
 import { FaGithub, FaX, FaXTwitter } from 'react-icons/fa6'
+import ReviewSection from 'components/review';
+
+export const revalidate = 60;
 
 export default function Home() {
   return (
@@ -39,7 +42,20 @@ export default function Home() {
 
 
       <AboutSection />
-      <WorksSection />    
+      <WorksSection />
+      <ReviewSection />
+
+      <div className="relative -mt-20 pt-24 max-w-5xl mx-auto">
+        本ポートフォリオサイトのソースコードは
+        <a href="https://github.com/Yugo0716/Portfolio" target="_blank"rel="noopener noreferrer" className="text-lime-600 underline">
+          GitHub
+          <svg className="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+        で確認できます。
+      </div>
+      
     </div>
   );
 }
