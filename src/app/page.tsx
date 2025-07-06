@@ -46,7 +46,7 @@ export default function Home() {
       <ReviewSection />
 
       <div className="relative -mt-20 pt-24 max-w-5xl mx-auto">
-        本ポートフォリオサイトの実装は
+        本ポートフォリオサイトのソースコードは
         <a href="https://github.com/Yugo0716/Portfolio" target="_blank"rel="noopener noreferrer" className="text-lime-600 underline">
           GitHub
           <svg className="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
